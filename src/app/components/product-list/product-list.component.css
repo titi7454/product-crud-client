@@ -1,0 +1,36 @@
+.fa-solid {
+  cursor: pointer;
+  margin-left: 8px;
+}
+.cardgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+@media only screen and (max-width: 1400px) {
+  .cardgrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    padding-left: 5rem;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .cardgrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    padding-left: 1.5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .product--list {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn--create {
+    width: 50%;
+  }
+  .cardgrid {
+    grid-template-columns: repeat(1, 1fr);
+    padding-left: 0;
+  }
+}

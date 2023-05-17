@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+}
+body {
+  background-image: url("assets/blob-scene-haikei.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title {
+  font-size: 1.8rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-size: 1400px;
+    background-position: initial;
+  }
+}

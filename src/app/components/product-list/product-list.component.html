@@ -1,0 +1,50 @@
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-10 offset-1 col-lg-8 col-md-11 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center product--list align-items-center">
+          <span class="title">List of products</span>
+          <button
+            class="btn btn-success float-md-end mt-2 btn--create"
+            routerLink="/create-product"
+          >
+            Create product
+          </button>
+          <div *ngIf="productsList.length > 0" class="pt-2 cardgrid">
+            <div
+              *ngFor="let product of productsList"
+              class="card"
+              style="width: 16.7rem"
+            >
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      {{ product.category }}
+                    </h6>
+                  </div>
+                  <h5 class="card-title mt-2">
+                    {{ product.price | currency : "USD" }}
+                  </h5>
+                </div>
+
+                <a
+                  [routerLink]="['/product-details', product._id]"
+                  class="btn btn-primary"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <h5
+            *ngIf="productsList.length == 0"
+            style="margin-top: 10px; text-align: center"
+          >
+            There are no items
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

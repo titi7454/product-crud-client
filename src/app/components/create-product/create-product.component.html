@@ -1,0 +1,127 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 offset-1 col-lg-8 col-md-11 offset-lg-2">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-body text-center">
+            <span class="title">{{ title }}</span>
+            <form
+              class="mt-3"
+              [formGroup]="productForm"
+              (ngSubmit)="createProduct()"
+            >
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Name"
+                  formControlName="product"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    productForm.get('product')?.hasError('required') &&
+                    productForm.get('product')?.touched
+                  "
+                >
+                  <span
+                    >The name of the product <strong>is mandatory</strong></span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Category"
+                  formControlName="category"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    productForm.get('category')?.hasError('required') &&
+                    productForm.get('category')?.touched
+                  "
+                >
+                  <span
+                    >The category of the product
+                    <strong>is mandatory</strong></span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <input
+                  type="number"
+                  class="form-control form-control-lg"
+                  placeholder="Price"
+                  formControlName="price"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    productForm.get('price')?.hasError('required') &&
+                    productForm.get('price')?.touched
+                  "
+                >
+                  <span
+                    >The price of the product
+                    <strong>is mandatory</strong></span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control form-control-lg"
+                  placeholder="Details"
+                  formControlName="details"
+                ></textarea>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    productForm.get('details')?.hasError('required') &&
+                    productForm.get('details')?.touched
+                  "
+                >
+                  <span
+                    >The details of the product
+                    <strong>are mandatory</strong></span
+                  >
+                </div>
+              </div>
+              <div class="mb-3" *ngIf="!isEditingProduct">
+                <button
+                  routerLink="/"
+                  class="btn btn-secondary btn-lg float-start"
+                >
+                  Return
+                </button>
+                <button
+                  type="submit"
+                  [disabled]="productForm.invalid"
+                  class="btn btn-success btn-lg float-end"
+                >
+                  {{ buttonText }}
+                </button>
+              </div>
+              <div class="mb-3" *ngIf="isEditingProduct">
+                <button
+                  [routerLink]="['/product-details', id]"
+                  class="btn btn-secondary btn-lg float-start"
+                >
+                  Return
+                </button>
+                <button
+                  type="submit"
+                  [disabled]="productForm.invalid"
+                  class="btn btn-success btn-lg float-end"
+                >
+                  {{ buttonText }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

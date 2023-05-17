@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 offset-1 col-lg-6 col-md-11 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4 class="card-title">{{ name }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ category }}
+              </h6>
+            </div>
+            <h4 class="card-title mt-2">
+              {{ price | currency : "USD" }}
+            </h4>
+          </div>
+          <h5>Details:</h5>
+          <h5 style="max-height: 8rem; overflow-y: auto; margin-bottom: 1rem">
+            {{ details }}
+          </h5>
+          <div>
+            <button routerLink="/" class="btn btn-secondary btn-lg float-start">
+              Return
+            </button>
+            <button
+              [routerLink]="['/edit-product', id]"
+              type="button"
+              class="btn btn-primary btn-lg"
+            >
+              Edit
+            </button>
+            <button
+              (click)="deleteProduct()"
+              type="button"
+              class="btn btn-danger btn-lg float-end"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
